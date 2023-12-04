@@ -1,16 +1,18 @@
 import random
 import string
+
+n= int(input("Please enter your max-char choices for password:"))
 pw=[]
-name= input("Enter your name")
-def generatepass():
-    while(len(pw)<15):
+def generatepass(n):
+    while(len(pw)<=n-1):
         pw.append(str(random.randint(1,10)))
         pw.append(random.choice(string.ascii_lowercase))
+        pw.append(random.choice(string.ascii_uppercase))
         pw.append(random.choice("!.,-_"))
-    print(pw)
+        pw = pw[:n]
 
-generatepass()
-print("Your name: ", name)
+generatepass(n)
+
 print("Your password:", "".join(map(str,pw)))
     
 
